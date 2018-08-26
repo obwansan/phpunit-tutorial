@@ -12,4 +12,14 @@ class UserTest extends PHPUnit\Framework\TestCase
       $this->assertEquals($user->getFirstName(), 'Billy');
     }
 
+    public function testLastNameIsSmith()
+    {
+      $user = new \App\Models\User;
+
+      $user->setLastName('Smith');
+
+      // Check that LastName equals 'Smith'
+      $this->assertEquals($user->getLastName(), 'Smith');
+    }
+
 }
