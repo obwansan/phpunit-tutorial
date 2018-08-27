@@ -6,7 +6,8 @@
 
 class UserTest extends PHPUnit\Framework\TestCase
 {
-    public function testFirstNameIsBilly()
+    /** @test */
+    public function first_name_is_billy()
     {
       $user = new \App\Models\User;
       $user->setFirstName('Billy');
@@ -15,7 +16,8 @@ class UserTest extends PHPUnit\Framework\TestCase
       $this->assertEquals($user->getFirstName(), 'Billy');
     }
 
-    public function testLastNameIsSmith()
+    /** @test */
+    public function last_name_is_smith()
     {
       $user = new \App\Models\User;
       $user->setLastName('Smith');
