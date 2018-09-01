@@ -6,6 +6,7 @@ class Collection
 {
     protected $items = [];
 
+    // Set default to empty array to stop empty_instantiated_collection_returns_no_items failing.
     public function __construct(array $items = [])
     {
         foreach ($items as $item) {

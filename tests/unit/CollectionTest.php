@@ -19,4 +19,17 @@ class CollectionTest extends PHPUnit\Framework\TestCase
 
       $this->assertEquals(3, $collection->count());
     }
+
+    /** @test */
+    public function items_returned_match_items_passed_in()
+    {
+      $collection = new \App\Support\Collection([
+            'one', 'two', 'three', 'four'
+      ]);
+
+      $this->assertCount(4, $collection->get());
+      $this->assertEquals($collection->get()[0], 'one');
+      $this->assertEquals($collection->get()[1], 'two');
+
+    }
 }
