@@ -56,4 +56,16 @@ class CollectionTest extends PHPUnit\Framework\TestCase
       $this->assertCount(4, $items);
       $this->assertInstanceOf(ArrayIterator::class, $collection->getIterator());
     }
+
+    /** @test */
+    public function collection_can_be_merged_with_another_collection()
+    {
+        $collection1 = new \App\Support\Collection(['one', 'two']);
+        $collection2 = new \App\Support\Collection(['three', 'four', 'five']);
+
+        $newCollection = $collection1->merge($collection2);
+
+        $this->assertCount(5, $newCollection->get());
+        // $this->assertEquals(5, $newCollection->count());
+    }
 }
