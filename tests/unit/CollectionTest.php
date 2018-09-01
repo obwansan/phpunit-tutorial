@@ -43,9 +43,7 @@ class CollectionTest extends PHPUnit\Framework\TestCase
     /** @test */
     public function collection_can_be_iterated()
     {
-      $collection = new \App\Support\Collection([
-            'one', 'two', 'three', 'four'
-      ]);
+      $collection = new \App\Support\Collection(['one', 'two', 'three', 'four']);
 
       $items = [];
 
@@ -67,5 +65,15 @@ class CollectionTest extends PHPUnit\Framework\TestCase
 
         $this->assertCount(5, $collection1->get());
         $this->assertEquals(5, $collection1->count());
+    }
+
+    /** @test */
+    public function can_add_to_existing_collection()
+    {
+      $collection = new \App\Support\Collection(['one', 'two', 'three', 'four']);
+      $collection->add(['five']);
+
+      $this->assertEquals(5, $collection->count());
+      $this->assertCount(5, $collection->get());
     }
 }
