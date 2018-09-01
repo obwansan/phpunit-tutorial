@@ -9,4 +9,14 @@ class CollectionTest extends PHPUnit\Framework\TestCase
 
       $this->assertEmpty($collection->get());
     }
+
+    /** @test */
+    public function count_is_correct_for_items_passed_in()
+    {
+      $collection = new \App\Support\Collection([
+            'one', 'two', 'three'
+      ]);
+
+      $this->assertEquals(3, $collection->count());
+    }
 }
