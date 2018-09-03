@@ -76,4 +76,16 @@ class CollectionTest extends PHPUnit\Framework\TestCase
       $this->assertEquals(5, $collection->count());
       $this->assertCount(5, $collection->get());
     }
+
+    /** @test */
+    public function returns_json_encoded_items()
+    {
+        $collection = new \App\Support\Collection([
+            ['username' => 'alex'],
+            ['username' => 'billy'],
+        ]);
+
+        $this->assertInternalType('string', $collection->toJson());
+        $this->assertEquals('[{"username":"alex"},{"username":"billy"}]', $collection->toJson());
+    }
 }
